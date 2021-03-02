@@ -12,7 +12,7 @@ import { GlobalDataType } from '../utils/types';
 
 import Layout from '../components/layout';
 
-import '../styles/index.css';
+import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   // Prevent Next bug when it tries to render the [[...slug]] route

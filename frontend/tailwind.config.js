@@ -1,7 +1,7 @@
-const { colors } = require(`tailwindcss/defaultTheme`);
+const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: ['./components/**/*.js', './pages/**/*.js'],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -20,6 +20,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+      '2xl': '1536px',
     },
   },
   plugins: [require('@tailwindcss/typography')],
