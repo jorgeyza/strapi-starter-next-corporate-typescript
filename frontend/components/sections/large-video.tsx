@@ -1,4 +1,4 @@
-import { MediaType } from '../../utils/types';
+import { ImageMediaType, VideoMediaType } from '../../utils/types';
 
 import Video from '../elements/video';
 
@@ -6,8 +6,8 @@ export interface LargeVideoProps {
   data: {
     title: string;
     description: string;
-    video: MediaType;
-    poster: MediaType;
+    video: VideoMediaType;
+    poster: ImageMediaType;
   };
 }
 

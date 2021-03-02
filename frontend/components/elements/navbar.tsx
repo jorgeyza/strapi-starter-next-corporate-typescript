@@ -7,7 +7,7 @@ import { getButtonAppearance } from '../../utils/button';
 
 import MobileNavMenu from './mobile-nav-menu';
 import ButtonLink from './button-link';
-import Image from './image';
+import CustomImage from './image';
 import CustomLink from './custom-link';
 
 interface NavbarProps {
@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ navbar }) => {
           <div className="flex flex-row items-center">
             <Link href="/[[...slug]]" as="/">
               <a>
-                <Image
+                <CustomImage
                   media={navbar.logo}
                   className="h-8 w-auto object-contain"
                 />

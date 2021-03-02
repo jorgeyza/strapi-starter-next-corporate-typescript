@@ -1,6 +1,6 @@
-import { LinkType, MediaType } from '../../utils/types';
+import { LinkType, ImageMediaType } from '../../utils/types';
 
-import Image from './image';
+import CustomImage from './image';
 import CustomLink from './custom-link';
 
 interface ColumnType {
@@ -11,7 +11,7 @@ interface ColumnType {
 
 interface FooterProps {
   footer: {
-    logo: MediaType;
+    logo: ImageMediaType;
     columns: ColumnType[];
     smallText: string;
   };
@@ -23,7 +23,11 @@ const Footer: React.FC<FooterProps> = ({ footer }) => {
       <div className="container flex flex-col lg:flex-row lg:justify-between">
         <div>
           {footer.logo && (
-            <Image media={footer.logo} className="h-8 w-auto object-contain" />
+            <CustomImage
+              media={footer.logo}
+              className="h-8 w-auto object-contain"
+              s
+            />
           )}
         </div>
         <nav className="flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end mb-10">

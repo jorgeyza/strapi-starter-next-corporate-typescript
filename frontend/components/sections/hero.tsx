@@ -1,10 +1,10 @@
 import Markdown from 'react-markdown';
 
 import { getButtonAppearance } from '../../utils/button';
-import { SectionButton, MediaType } from '../../utils/types';
+import { SectionButton, ImageMediaType } from '../../utils/types';
 
 import ButtonLink from '../elements/button-link';
-import Image from '../elements/image';
+import CustomImage from '../elements/image';
 
 export interface HeroProps {
   data: {
@@ -12,7 +12,7 @@ export interface HeroProps {
     title: string;
     description: string;
     smallTextWithLink: string;
-    picture: MediaType;
+    picture: ImageMediaType;
     buttons: SectionButton[];
   };
 }
@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
         </div>
       </div>
       {/* Right column for the image */}
-      <Image
+      <CustomImage
         media={data.picture}
         className="flex-shrink-0 object-contain w-full md:w-6/12 mt-6 md:mt-0"
       />

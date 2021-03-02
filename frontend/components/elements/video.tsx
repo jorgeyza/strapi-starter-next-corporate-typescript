@@ -1,9 +1,9 @@
 import { getStrapiMedia } from '../../utils/media';
-import { MediaType } from '../../utils/types';
+import { ImageMediaType, VideoMediaType } from '../../utils/types';
 
 interface VideoProps {
-  media: MediaType;
-  poster?: MediaType;
+  media: VideoMediaType;
+  poster?: ImageMediaType;
   className?: string;
   controls?: boolean;
   autoPlay?: boolean;

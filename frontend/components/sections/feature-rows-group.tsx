@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
-import { LinkType, MediaType } from '../../utils/types';
+import { LinkType, ImageMediaType, VideoMediaType } from '../../utils/types';
 
-import Image from '../elements/image';
+import CustomImage from '../elements/image';
 import Video from '../elements/video';
 import CustomLink from '../elements/custom-link';
 
@@ -10,7 +10,7 @@ interface RowFeaturesType {
   id: string | number;
   title: string;
   description: string;
-  media: MediaType;
+  media: ImageMediaType | VideoMediaType;
   link: LinkType;
 }
 
@@ -49,12 +49,15 @@ const FeatureRowsGroup: React.FC<FeatureRowsGroupProps> = ({ data }) => {
           <div className="w-full sm:9/12 lg:w-4/12 max-h-full">
             {/* Images */}
             {feature.media.mime.startsWith('image') && (
-              <Image media={feature.media} className="w-full h-auto" />
+              <CustomImage
+                media={feature.media as ImageMediaType}
+                className="w-full h-auto"
+              />
             )}
             {/* Videos */}
             {feature.media.mime.startsWith('video') && (
               <Video
-                media={feature.media}
+                media={feature.media as VideoMediaType}
                 className="w-full h-auto"
                 autoPlay
                 controls={false}

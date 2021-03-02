@@ -1,18 +1,25 @@
 import { getStrapiMedia } from '../../utils/media';
-import { MediaType } from '../../utils/types';
+import { ImageMediaType } from '../../utils/types';
+import Image from 'next/image';
 
 interface ImageProps {
-  media: MediaType;
+  media: ImageMediaType;
   className?: string;
 }
 
-const Image: React.FC<ImageProps> = ({ media, className }) => {
+const CustomImage: React.FC<ImageProps> = ({ media, className }) => {
   const { url, alternativeText } = media;
   const fullUrl = getStrapiMedia(url);
 
   return (
-    <img src={fullUrl!} alt={alternativeText || ''} className={className} />
+    <Image
+      src={fullUrl!}
+      alt={alternativeText || ''}
+      className={className}
+      width={media.width as number}
+      height={media.height as number}
+    />
   );
 };
 
-export default Image;
+export default CustomImage;

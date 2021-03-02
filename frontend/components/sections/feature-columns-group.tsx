@@ -1,12 +1,12 @@
-import { MediaType } from '../../utils/types';
+import { ImageMediaType } from '../../utils/types';
 
-import Image from '../elements/image';
+import CustomImage from '../elements/image';
 
 interface ColumnFeaturesType {
   id: string | number;
   title: string;
   description: string;
-  icon: MediaType;
+  icon: ImageMediaType;
 }
 
 export interface FeatureColumnsGroupProps {
@@ -20,7 +20,7 @@ const FeatureColumnsGroup: React.FC<FeatureColumnsGroupProps> = ({ data }) => {
     <div className="container flex flex-col lg:flex-row lg:flex-wrap gap-12 align-top py-12">
       {data.features.map((feature) => (
         <div className="flex-1 text-lg" key={feature.id}>
-          <Image media={feature.icon} className="w-10" />
+          <CustomImage media={feature.icon} className="w-10" />
           <h3 className="font-bold mt-4 mb-4">{feature.title}</h3>
           <p>{feature.description}</p>
         </div>

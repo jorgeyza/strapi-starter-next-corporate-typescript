@@ -1,21 +1,21 @@
 import classNames from 'classnames';
 import { useState } from 'react';
 
-import { LinkType, MediaType } from '../../utils/types';
+import { LinkType, ImageMediaType } from '../../utils/types';
 
-import Image from '../elements/image';
+import CustomImage from '../elements/image';
 import CustomLink from '../elements/custom-link';
 
 interface LogoType {
   id: string | number;
   title: string;
-  logo: MediaType;
+  logo: ImageMediaType;
 }
 
 interface TestimonialType {
   id: string | number;
-  logo: MediaType;
-  picture: MediaType;
+  logo: ImageMediaType;
+  picture: ImageMediaType;
   text: string;
   authorName: string;
   authorTitle: string;
@@ -48,13 +48,13 @@ const TestimonialsGroup: React.FC<TestimonialsGroupProps> = ({ data }) => {
       </CustomLink>
       {/* Current testimonial card */}
       <div className="max-w-5xl w-8/12 sm:w-8/12 bg-white shadow-md sm:shadow-xl mx-auto flex flex-col sm:flex-row mt-10 text-left">
-        <Image
+        <CustomImage
           media={selectedTestimonial.picture}
           className="w-full md:w-4/12 object-cover flex-shrink-0"
         />
         <div className="px-4 py-4 sm:px-12 sm:pt-12 sm:pb-4 flex flex-col justify-between">
           <div>
-            <Image
+            <CustomImage
               media={selectedTestimonial.logo}
               className="h-8 w-auto mb-6 sm:mb-10 mt-2 sm:mt-0"
             />
@@ -102,7 +102,7 @@ const TestimonialsGroup: React.FC<TestimonialsGroupProps> = ({ data }) => {
       {/* Logos list */}
       <div className="flex flex-row flex-wrap items-center gap-6 sm:gap-20 justify-center mt-10 px-6 sm:px-0">
         {data.logos.map((logo) => (
-          <Image
+          <CustomImage
             media={logo.logo}
             className="h-8 max-w-xs w-auto object-contain"
             key={logo.id}

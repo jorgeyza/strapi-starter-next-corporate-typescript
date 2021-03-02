@@ -74,14 +74,34 @@ export interface SectionButton {
   type: 'primary' | 'secondary';
 }
 
-export interface MediaType {
+export interface ImageMediaType {
   id: number | string;
   name: string;
   alternativeText: string | null;
   caption: string | null;
-  width: number | null;
-  height: number | null;
-  formats: SectionPictureFormats | null;
+  width: number;
+  height: number;
+  formats: SectionPictureFormats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: string | null;
+  provider: string;
+  provider_metadata: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export interface VideoMediaType {
+  id: number | string;
+  name: string;
+  alternativeText: string | null;
+  caption: string | null;
+  width: null;
+  height: null;
+  formats: null;
   hash: string;
   ext: string;
   mime: string;
@@ -97,7 +117,7 @@ export interface MediaType {
 export interface MetadataType {
   metaTitle: string;
   metaDescription: string;
-  shareImage?: MediaType;
+  shareImage?: ImageMediaType;
   twitterCardType?: 'summary' | 'summary_large_image' | 'app' | 'player';
   twitterUsername?: string;
 }
@@ -108,13 +128,13 @@ export interface NotificationBannerType {
 }
 
 export interface NavbarType {
-  logo: MediaType;
+  logo: ImageMediaType;
   links: LinkType[];
   button: SectionButton;
 }
 
 export interface FooterType {
-  logo: MediaType;
+  logo: ImageMediaType;
   columns: {
     id: string | number;
     title: string;
@@ -126,7 +146,7 @@ export interface FooterType {
 export interface GlobalDataType {
   metadata: MetadataType;
   metaTitleSuffix: string;
-  favicon: MediaType;
+  favicon: ImageMediaType;
   notificationBanner: NotificationBannerType;
   navbar: NavbarType;
   footer: FooterType;
@@ -136,27 +156,27 @@ interface ColumnFeaturesType {
   id: string | number;
   title: string;
   description: string;
-  icon: MediaType;
+  icon: ImageMediaType;
 }
 
 interface RowFeaturesType {
   id: string | number;
   title: string;
   description: string;
-  media: MediaType;
+  media: ImageMediaType;
   link: LinkType;
 }
 
 interface LogoType {
   id: string | number;
   title: string;
-  logo: MediaType;
+  logo: ImageMediaType;
 }
 
 interface TestimonialType {
   id: string | number;
-  logo: MediaType;
-  picture: MediaType;
+  logo: ImageMediaType;
+  picture: ImageMediaType;
   text: string;
   authorName: string;
   authorTitle: string;
@@ -189,7 +209,7 @@ export interface HeroSection {
   description: string;
   smallTextWithLink: string;
   buttons: SectionButton[];
-  picture: MediaType;
+  picture: ImageMediaType;
 }
 
 export interface LargeVideoSection {
@@ -197,8 +217,8 @@ export interface LargeVideoSection {
   id: number | string;
   title: string;
   description: string;
-  video: MediaType;
-  poster: MediaType;
+  video: ImageMediaType;
+  poster: ImageMediaType;
 }
 
 export interface FeatureColumnsGroupSection {

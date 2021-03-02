@@ -4,7 +4,7 @@ import { useLockBodyScroll } from '../../utils/hooks';
 import { getButtonAppearance } from '../../utils/button';
 import { NavbarType } from '../../utils/types';
 
-import Image from './image';
+import CustomImage from './image';
 import ButtonLink from './button-link';
 import CustomLink from './custom-link';
 
@@ -23,7 +23,10 @@ const MobileNavMenu: React.FC<MobileNavMenuProps> = ({ navbar, closeSelf }) => {
         {/* Top section */}
         <div className="flex flex-row justify-between py-2 items-center">
           {/* Company logo */}
-          <Image media={navbar.logo} className="h-8 w-auto object-contain" />
+          <CustomImage
+            media={navbar.logo}
+            className="h-8 w-auto object-contain"
+          />
           {/* Close button */}
           <button onClick={closeSelf} className="py-1 px-1">
             <MdClose className="h-8 w-auto" />
